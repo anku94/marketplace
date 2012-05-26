@@ -7,11 +7,46 @@
 	<script type="text/javascript" src=""></script>
 	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script-->
 	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script type="text/javascript">
-	//Insert JavaScript here
+	//Slideshow
+	/*var startSlide = 1;
+	if (window.location.hash) {
+		startSlide = window.location.hash.replace('#', '');
+	}*/
+	//Initialize slides
+
+	/*$('slides').slides ({
+			preload: true,
+			preloadImage: 'images/loading.gif',
+			generatePagination: true;
+			play: 5000,
+			pause: 2500,
+			hoverPause: false,
+			start: startSlide,
+			animationComplete: function(current){
+				window.location.hash = '#' + current;
+				}
+		});*/
 	</script>
 	<style>
+
+	.slides_container {
+		width: 570px;
+		height: 210px;
+	}
+	.slides_container div {
+		position:relative;
+		width: 570px;
+		height: 210px;
+		display: block;
+	}
+	.slides_container img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
 	
 	</style>
 	<title>	Some title</title>
@@ -26,7 +61,24 @@
 	</div>
 	<div id="main">
 		<div id="content">
-			Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content Main content	Main content
+			<div id="slides">
+				<div class="slides_container">
+					<div class="slide">
+						<img src="http://placehold.it/570x270" height="210">
+					</div>
+					<div class="slide">
+						<img src="http://placehold.it/570x270" height="210">
+					</div>
+					<div class="slide">
+						<img src="http://placehold.it/570x270" height="210">
+					</div>
+					<div class="slide">
+						<img src="http://placehold.it/570x270" height="210">
+					</div>
+
+				</div>
+
+			</div>
 		</div>
 		<div id="sidebar">
 			<p>
@@ -46,21 +98,34 @@
 		$window=$(window);
 		$content=$('#content');
 		$sidebar=$('#sidebar');
+		$slidebox=$('.slides_container');
+		$slidediv=$('.slides_container div');
+		$('.pagination').css('display', 'none');
 		console.log($window.width()-215);
+		$('#slides').slides({
+				//generatePagination: True
+				});	
 		$document.ready(function(){
 			var ht=$window.height()-70,
 			wd=$window.width()-216;
 			$main.css('height', ht);
 			$content.css('width', wd).css('min-height', ht);
-			$sidebar.css('min-height', ht);
-		})
+			$slidebox.css('width', wd).css('min-height', ht);
+			//$slidediv.css('width', wd).css('min-height', ht);
+			$sidebar.css('min-height', ht).css('height', ht);
+			$('.pagination').css('display', 'none');
+		});
+
 		$window.resize(function() {
 			var ht=$window.height()-70,
 			wd=$window.width()-216;
 			$main.css('height', ht);
 			$content.css('width', wd).css('min-height', ht);
+			$slidebox.css('width', wd).css('min-height', ht);
+			//$slidediv.css('width', wd).css('min-height', ht);
 			$sidebar.css('min-height', ht);
-		})
+		});
+		
 	</script>
 </body>
 </html>
