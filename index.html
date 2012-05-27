@@ -8,6 +8,7 @@
 	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script-->
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
+	<script src="js/jquery.waitforimages.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script type="text/javascript">
 	//Slideshow
@@ -33,19 +34,22 @@
 	<style>
 
 	.slides_container {
+		position:relative;
 		width: 570px;
 		height: 210px;
 	}
 	.slides_container div {
-		position:relative;
 		width: 570px;
 		height: 210px;
 		display: block;
+		/*position: absolute;
+		top:50%;
+		left:50%;*/
+		background-color: yeellow;
 	}
-	.slides_container img {
-		position: absolute;
-		top: 50%;
-		left: 50%;
+	.slide {
+		margin-left:288px;
+		margin-top:100px;
 	}
 	
 	</style>
@@ -64,16 +68,16 @@
 			<div id="slides">
 				<div class="slides_container">
 					<div class="slide">
-						<img src="http://placehold.it/570x270" height="210">
+						<img src="http://placehold.it/570x270">
 					</div>
 					<div class="slide">
-						<img src="http://placehold.it/570x270" height="210">
+						<img src="http://placehold.it/570x270">
 					</div>
 					<div class="slide">
-						<img src="http://placehold.it/570x270" height="210">
+						<img src="http://placehold.it/570x270">
 					</div>
 					<div class="slide">
-						<img src="http://placehold.it/570x270" height="210">
+						<img src="http://placehold.it/570x270">
 					</div>
 
 				</div>
@@ -82,10 +86,19 @@
 		</div>
 		<div id="sidebar">
 			<p>
-			Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content
-			Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content
-			Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content
-			Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content	Sidebar content
+				<a id="slide1">Slide 1</a>
+			</p>
+			<p>
+				<a id="slide2">Slide 2</a>
+			</p>
+			<p>
+				<a id="slide3">Slide 3</a>
+			</p>
+			<p>
+				<a id="slide4">Slide 4</a>
+			</p>
+			<p>
+				The above may be text, but it's clickable text. Click to change the slides
 			</p>
 		</div>
 	</div>
@@ -93,6 +106,8 @@
 		
 	</div>
 	<script>
+
+
 		var $document=$(document),
 		$main=$('#main'),
 		$window=$(window);
@@ -101,9 +116,40 @@
 		$slidebox=$('.slides_container');
 		$slidediv=$('.slides_container div');
 		$('.pagination').css('display', 'none');
-		console.log($window.width()-215);
+		function slideAdjust(wd, ht){
+			$active=$('.slide:not([style*="none"])');
+			iwd=$active.children("img").width();
+			iht=$active.children("img").height();
+			mtop=(ht-iht)/2;
+			mleft=(wd-iwd)/2;
+			console.log($active.children("img"), ht, wd, iht, iwd);
+			$active.animate({
+					marginLeft: mleft,
+					marginTop: mtop
+					}, 120);
+			//$active.css("margin-left", mleft).css("margin-top", mtop);
+		}
+
+	//	$('#slides').slides({
+	//			//generatePagination: True
+	//			});
 		$('#slides').slides({
-				//generatePagination: True
+				//preload: true,
+				//preloadImage: 'img/loading.gif',
+				//generatePagination: true,
+				//play: 5000,
+				//pause: 2500,
+				//hoverPause: true,
+				// Get the starting slide
+				//start: startSlide,
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+					var ht=$window.height()-70,
+					wd=$window.width()-216;
+					slideAdjust(wd, ht);
+					}
+					
 				});	
 		$document.ready(function(){
 			var ht=$window.height()-70,
@@ -114,7 +160,13 @@
 			//$slidediv.css('width', wd).css('min-height', ht);
 			$sidebar.css('min-height', ht).css('height', ht);
 			$('.pagination').css('display', 'none');
+
 		});
+		$document.waitForImages(function(){
+			var ht=$window.height()-70,
+			wd=$window.width()-216;
+			slideAdjust(wd, ht);
+				});
 
 		$window.resize(function() {
 			var ht=$window.height()-70,
@@ -124,7 +176,21 @@
 			$slidebox.css('width', wd).css('min-height', ht);
 			//$slidediv.css('width', wd).css('min-height', ht);
 			$sidebar.css('min-height', ht);
+			slideAdjust(wd, ht);
 		});
+		$sidebar.find('a#slide1').click(function() {
+				$('.pagination a').eq(0).trigger('click');
+				});
+		$sidebar.find('a#slide2').click(function() {
+				$('.pagination a').eq(1).trigger('click');
+				});
+		$sidebar.find('a#slide3').click(function() {
+				$('.pagination a').eq(2).trigger('click');
+				});
+		$sidebar.find('a#slide4').click(function() {
+				$('.pagination a').eq(3).trigger('click');
+				});
+		
 		
 	</script>
 </body>

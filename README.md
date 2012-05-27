@@ -5,6 +5,20 @@ This website is gonna use some CSS, some JS, some jQuery, and of course, HTML.
 
 Since I doubt if anyone but me and partner (Hello, Nehal!) is gonna go through this, I am just going to list the work that needs to be done here.
 
+May 27, 5:35AM, Ankush
+------------------------
+The slides have been implemented and they kindda work. The carousel is still to be added.
+
+The centering problem has been solved, although it has not been tested with images of various sizes. (A for loop with that function run for every image upon initialization might solve an issue).
+
+The clipping problem is still there - if the image is wider or taller than the screen, it will clip. Some more code is required to adjust that.
+
+Other than that, only the carousel is left. The resizable footer is a minor job once the graphics are ready, which, again, is a minor job using the .animate function.
+
+The font style on the navbar needs to be improved. This one practically sucks.
+
+
+
 May 26, 1:46AM, Ankush
 -------------------------
 All the stuff in the directories is empty/fake/not required. All the code is in the index.html and both image files required are in the root.
