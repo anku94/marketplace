@@ -5,6 +5,10 @@ This website is gonna use some CSS, some JS, some jQuery, and of course, HTML.
 
 Since I doubt if anyone but me and partner (Hello, Nehal!) is gonna go through this, I am just going to list the work that needs to be done here.
 
+May 28, 1:05PM, Nehal
+------------------------
+Changes made and can be seen in index2.html. 16 Transitions have been added and linked with elements in right-sidebar. Loop-problem, Resize-problemyet to be resolved. A little css work on font and other needs to be done. 
+
 May 27, 5:35AM, Ankush
 ------------------------
 The slides have been implemented and they kindda work. The carousel is still to be added.
