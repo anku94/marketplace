@@ -125,22 +125,24 @@
         if(!settings.manualAdvance && kids.length > 1){
             timer = setInterval(function(){ nivoRun(slider, kids, settings, false); }, settings.pauseTime);
         }
-	// n_slides=$sidebar.children().length;
-   	    $sidebar.find('a#slide1').click(function() {
-	 		    nivoRun(slider, kids, settings, 'next',0);
-			    });
-   	    $sidebar.find('a#slide2').click(function() {
-	 		    nivoRun(slider, kids, settings, 'next',1);
-			    });
-   	    $sidebar.find('a#slide3').click(function() {
-	 		    nivoRun(slider, kids, settings, 'next',2);
-			    });
-   	    $sidebar.find('a#slide4').click(function() {
-	 		    nivoRun(slider, kids, settings, 'next',3);
-			    });
-
-
-        //Add Direction nav
+	 n_slides=document.getElementsByClassName("linker").length;
+	 for (var i = 0; i < n_slides; i+=1) { 
+		 (function (i) { 
+		  document.getElementById('slide'+(i+1)).onclick = function () { 
+	 		    nivoRun(slider, kids, settings, 'next',i);
+		  }; 
+		  }) (i); 
+	 }
+	 n_slides=document.getElementById("mycarousel").getElementsByTagName("li");
+	 for (var i = 0; i < n_slides.length; i+=1) { 
+		 (function (i) { 
+		  n_slides[i].onclick = function () { 
+	 		    nivoRun(slider, kids, settings, 'next',i-1);
+		  }; 
+		  }) (i); 
+	 }
+	 
+	 //Add Direction nav
         if(settings.directionNav){
             slider.append('<div class="nivo-directionNav"><a class="nivo-prevNav">'+ settings.prevText +'</a><a class="nivo-nextNav">'+ settings.nextText +'</a></div>');
             
@@ -324,7 +326,7 @@
 		var nivoRun = function(slider, kids, settings, nudge, switch_no){
 			//Get our vars
 			var vars = slider.data('nivo:vars');
-        		if(switch_no) vars.currentSlide=switch_no;   
+        		if(switch_no>=-1) vars.currentSlide=switch_no;   
 	//Trigger the lastSlide callback
             if(vars && (vars.currentSlide == vars.totalSlides - 1)){ 
 				settings.lastSlide.call(this);
