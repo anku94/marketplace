@@ -83,9 +83,7 @@ a:hover, a:active {
 }
 
 .theme-default #slider {
-    margin:100px auto 0 auto;
-    width:570px; /* Make sure your images are the same size */
-    height:270px; /* Make sure your images are the same size */
+    position: relative;
 }
 .theme-pascal.slider-wrapper,
 .theme-orman.slider-wrapper {

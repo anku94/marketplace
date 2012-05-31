@@ -28,13 +28,16 @@
         //Get this slider
         var slider = $(element);
         slider.data('nivo:vars', vars);
-        slider.css('position','relative');
         slider.addClass('nivoSlider');
-        
-        //Find our slider children
-        var kids = slider.children();
+	//Find our slider children
+	var default_width=($('#content').width()-20);
+	var default_height=($('#content').height()-25);
+	slider.width(default_width);
+	slider.height(default_height);
+	var n_slides=document.getElementById("slider").getElementsByTagName("img");
+	var kids = slider.children();
         kids.each(function() {
-            var child = $(this);
+        /*    var child = $(this);
             var link = '';
             if(!child.is('img')){
                 if(child.is('a')){
@@ -49,17 +52,17 @@
             var childHeight = child.height();
             if(childHeight == 0) childHeight = child.attr('height');
             //Resize the slider
-            if(childWidth > slider.width()){
-                slider.width(childWidth);
+	    if(childWidth > slider.width()){
+       //         slider.width(childWidth);
             }
             if(childHeight > slider.height()){
-                slider.height(childHeight);
+	//	 slider.height(childHeight);
             }
             if(link != ''){
                 link.css('display','none');
             }
             child.css('display','none');
-            vars.totalSlides++;
+       */     vars.totalSlides++;
         });
         
         //If randomStart
@@ -79,14 +82,14 @@
         } else {
             vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
         }
-        
         //Show initial link
         if($(kids[vars.currentSlide]).is('a')){
             $(kids[vars.currentSlide]).css('display','block');
         }
         
         //Set first background
-        slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+	slider.width((vars.currentImage.width()/vars.currentImage.height())*(slider.height()));
+        slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain'});
 
         //Create caption
         slider.append(
@@ -200,7 +203,7 @@
                 if($(this).hasClass('active')) return false;
                 clearInterval(timer);
                 timer = '';
-                slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+                slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat ');
                 vars.currentSlide = $(this).attr('rel') - 1;
             });
         }
@@ -226,7 +229,7 @@
             });
         }
         
-        //For pauseOnHover setting
+        //For p setting
         if(settings.pauseOnHover){
             slider.hover(function(){
                 vars.paused = true;
@@ -264,7 +267,7 @@
         
         // Add slices for slice animations
         var createSlices = function(slider, settings, vars){
-            for(var i = 0; i < settings.slices; i++){
+		for(var i = 0; i < settings.slices; i++){
 				var sliceWidth = Math.round(slider.width()/settings.slices);
 				if(i == settings.slices-1){
 					slider.append(
@@ -272,7 +275,7 @@
 							left:(sliceWidth*i)+'px', width:(slider.width()-(sliceWidth*i))+'px',
 							height:'0px', 
 							opacity:'0', 
-							background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((sliceWidth + (i * sliceWidth)) - sliceWidth) +'px 0%'
+							background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((sliceWidth + (i * sliceWidth)) - sliceWidth) +'px 0%',
 						})
 					);
 				} else {
@@ -281,7 +284,7 @@
 							left:(sliceWidth*i)+'px', width:sliceWidth+'px',
 							height:'0px', 
 							opacity:'0', 
-							background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((sliceWidth + (i * sliceWidth)) - sliceWidth) +'px 0%'
+							background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((sliceWidth + (i * sliceWidth)) - sliceWidth) +'px 0%',
 						})
 					);
 				}
@@ -303,7 +306,7 @@
 								top:(boxHeight*rows)+'px',
 								width:(slider.width()-(boxWidth*cols))+'px',
 								height:boxHeight+'px',
-								background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((boxWidth + (cols * boxWidth)) - boxWidth) +'px -'+ ((boxHeight + (rows * boxHeight)) - boxHeight) +'px'
+								background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((boxWidth + (cols * boxWidth)) - boxWidth) +'px -'+ ((boxHeight + (rows * boxHeight)) - boxHeight) +'px',
 							})
 						);
 					} else {
@@ -314,7 +317,7 @@
 								top:(boxHeight*rows)+'px',
 								width:boxWidth+'px',
 								height:boxHeight+'px',
-								background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((boxWidth + (cols * boxWidth)) - boxWidth) +'px -'+ ((boxHeight + (rows * boxHeight)) - boxHeight) +'px'
+								background: 'url("'+ vars.currentImage.attr('src') +'") no-repeat -'+ ((boxWidth + (cols * boxWidth)) - boxWidth) +'px -'+ ((boxHeight + (rows * boxHeight)) - boxHeight) +'px',
 							})
 						);
 					}
@@ -324,12 +327,18 @@
 
         // Private run method
 		var nivoRun = function(slider, kids, settings, nudge, switch_no){
+			slider.css('background-image','none');
+			slider.width(($('#content').width())-20);
+			slider.height(($('#content').height())-25);
+		//	slider.width(0);
+		//	slider.height(0);
+			slider.css('margin','0 auto');
 			//Get our vars
 			var vars = slider.data('nivo:vars');
         		if(switch_no>=-1) vars.currentSlide=switch_no;   
 	//Trigger the lastSlide callback
             if(vars && (vars.currentSlide == vars.totalSlides - 1)){ 
-				settings.lastSlide.call(this);
+		    		settings.lastSlide.call(this);
 			}
             
             // Stop
@@ -339,18 +348,24 @@
 			settings.beforeChange.call(this);
 					
 			//Set current background before change
-			if(!nudge){
-				slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+	/*		if(!nudge){
+				slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat center');
 			} else {
 				if(nudge == 'prev'){
-					slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+					slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat center');
 				}
 				if(nudge == 'next'){
-					slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+					slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat center');
 				}
 			}
-			vars.currentSlide++;
-            //Trigger the slideshowEnd callback
+	*/		
+	/*		slider.fadeTo('slow', 0.3, function()
+					{
+				$(this).css({'background':'url("css2/default/loading.gif") no-repeat center','background-color':'white'});
+					}).fadeTo('slow', 1);
+	*/		vars.currentSlide++;
+          
+		//Trigger the slideshowEnd callback
 			if(vars.currentSlide == vars.totalSlides){ 
 				vars.currentSlide = 0;
 				settings.slideshowEnd.call(this);
@@ -362,6 +377,29 @@
 			} else {
 				vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
 			}
+			if (vars.currentImage.width()>(($('#content').width())-20)) {
+				$('.nivo-slice', slider).remove();
+				$('.nivo-box', slider).remove();
+				slider.width((vars.currentImage.width()/vars.currentImage.height())*(slider.height()));
+				slider.css('top','10px');
+				slider.fadeTo('slow', 0.3, function()
+						{
+					slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center','background-size':'contain'});
+						}).fadeTo('slow', 1);
+					return;
+			}
+			else /*if (vars.currentImage.width()<=slider.width()||vars.currentImage.height()<=slider.height()) */{
+				slider.width(vars.currentImage.width());
+				slider.height(vars.currentImage.height());
+				slider.css('top',(($('#content').height())-25-vars.currentImage.height())/2);
+/*				slider.fadeTo('slow', 0.3, function()
+						{
+						$(this).css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat center');
+						}).fadeTo('slow', 1);
+				$('.nivo-slice', slider).remove();
+				$('.nivo-box', slider).remove();
+				return;
+*/			}
 			
 			//Set active links
 			if(settings.controlNav){
@@ -656,7 +694,6 @@
         
         //Trigger the afterLoad callback
         settings.afterLoad.call(this);
-		
 		return this;
     };
         

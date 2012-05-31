@@ -14,28 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="css2/style.css" />
 	<link rel="stylesheet" type="text/css" href="css2/nivo-slider.css" />
 	<link rel="stylesheet" type="text/css" href="css2/default/default.css" />
-	<style>
-
-	.slides_container {
-		position:relative;
-		width: 570px;
-		height: 210px;
-	}
-	.slides_container div {
-		width: 570px;
-		height: 210px;
-		display: block;
-		/*position: absolute;
-		top:50%;
-		left:50%;*/
-		background-color: yeellow;
-	}
-	.slide {
-		margin-left:288px;
-		margin-top:100px;
-	}
-	
-	</style>
 	<title>	Some title</title>
 </head>
 <body>
@@ -52,7 +30,8 @@
 				<div class="slider-wrapper theme-default">
 					<div class="ribbon"></div>
 						<div id="slider" class="nivoSlider">
-						<img src="images/YellowFlower.jpg"/> 
+						<img src="images/1920x1024.jpg" id="a1" /> 
+						<img src="images/thumbs/YellowFlower.jpg"/> 
 						<img src="images/FootFall.png"/> 
 						<img src="images/GreenMeadow.jpg"/> 
 						<img src="images/Spaceflare-supernova.jpg"/> 
@@ -72,7 +51,7 @@
 				<a href="http://dev7studios.com"><img src="images/570x270.gif" alt="" title="This is an example of a caption" /></a>
 						<img src="images/Aqua.jpg" alt="" title="#htmlcaption" />
 
-						</div>
+					</div>
 					<div id="htmlcaption" class="nivo-html-caption">
 					<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
 				</div>
@@ -98,7 +77,6 @@
 		<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
 		<link rel="stylesheet" type="text/css" href="css2/skin_sidebar.css" />
 		<script type="text/javascript">
-
 		jQuery(document).ready(function() {
 				    jQuery('#mycarousel').jcarousel({
 					            vertical: true,
@@ -108,6 +86,7 @@
 		</script>
 		<div id="wrap">
 			<ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
+				<li><img src="images/1920x1024.jpg" width="75" height="75" alt="" /></li>
 				<li><img src="images/thumbs/YellowFlower.jpg" width="75" height="75" alt="" /></li>
 				<li><img src="images/thumbs/FootFall.png" width="75" height="75" alt="" /></li>
 				<li><img src="images/thumbs/GreenMeadow.jpg" width="75" height="75" alt="" /></li>
@@ -144,7 +123,6 @@
 		$slidebox=$('.slides_container');
 		$slidediv=$('.slides_container div');
 		$('.pagination').css('display', 'none');
-		$('#slider').nivoSlider();
 		function slideAdjust(wd, ht){
 			$active=$('.slide:not([style*="none"])');
 			iwd=$active.children("img").width();
@@ -152,6 +130,10 @@
 			mtop=(ht-iht)/2;
 			mleft=(wd-iwd)/2;
 			console.log($active.children("img"), ht, wd, iht, iwd);
+			$('#slider').width(($('#content').width())-20);
+			$('#slider').height(($('#content').height())-25);
+			$('#slider').css('margin','0 auto');
+			$('#slider').css('top','10px');
 			$active.animate({
 					marginLeft: mleft,
 					marginTop: mtop
@@ -175,7 +157,7 @@
 			$slidebox.css('width', wd).css('min-height', ht);
 			$sidebar.css('min-height', ht).css('height', ht);
 			$('.pagination').css('display', 'none');
-
+			$('#slider').nivoSlider();
 		});
 		$document.waitForImages(function(){
 			var ht=$window.height()-70,
