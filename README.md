@@ -11,6 +11,8 @@ Moved the code to experiment.html with the changed stylesheet. Removed almost al
 
 index.html is now basically useless - index2.html will be removed and experiment.html will be made into index.html once the bugs that are present in experiment.html and not in index2.html are removed.
 
+Also, *necessary modifications to the latest jquery version need to be made so that the scroll functionality can be regained. Or, a better method to make the scroll wheel work needs to be figured out, as the current method does not work in Chrome anyway. *
+
 May 28, 1:05PM, Nehal
 ------------------------
 Changes made and can be seen in index2.html. 16 Transitions have been added and linked with elements in right-sidebar. Loop-problem, Resize-problemyet to be resolved. A little css work on font and other needs to be done. 
