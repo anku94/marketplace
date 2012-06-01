@@ -5,6 +5,12 @@ This website is gonna use some CSS, some JS, some jQuery, and of course, HTML.
 
 Since I doubt if anyone but me and partner (Hello, Nehal!) is gonna go through this, I am just going to list the work that needs to be done here.
 
+June 2, 1:58AM, Ankush
+-----------------------
+Moved the code to experiment.html with the changed stylesheet. Removed almost all the javascript code at the bottom that previously handled resizing. The footer-div now comes before the content-div, due to the requirements of the CSS layout. The only bug other than the carousel height is the initial position of the image. The image is not centered initially. Although when you visit the same image again, it gets centered.
+
+index.html is now basically useless - index2.html will be removed and experiment.html will be made into index.html once the bugs that are present in experiment.html and not in index2.html are removed.
+
 May 28, 1:05PM, Nehal
 ------------------------
 Changes made and can be seen in index2.html. 16 Transitions have been added and linked with elements in right-sidebar. Loop-problem, Resize-problemyet to be resolved. A little css work on font and other needs to be done. 
