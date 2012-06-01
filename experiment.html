@@ -4,8 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 	<meta name="description" content="A blurb to describe the content of the page appears here" >
 	<script type="text/javascript" src=""></script>
-	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script-->
-	<script src="js/jquery-1.4.2.min.js"></script>
+	<!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script -->
+	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
 	<script src="js/jquery.waitforimages.js"></script>
 	<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
@@ -100,13 +100,30 @@
 	
 	<div id="footer">
 
+		Let's try resizing it. :)
+
 	</div>
 
 	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
+	var $footer=$('#footer');
 		$(document).ready(function(){
 			$('#slider').nivoSlider();
-		});		
+			//Footer resizing, on function WILL NOT work wil jQuery 1.4.2
+			$footer.on('click', function(){
+				console.log('Footer clicked');
+				if($footer.css('height')=='30px'){
+					$footer.animate({
+						height:100
+					}, 100);
+				}
+				else{
+					$footer.animate({
+						height:30
+					}, 100);
+				}				
+			});
+		});				
 	</script>
 </body>
 </html>
