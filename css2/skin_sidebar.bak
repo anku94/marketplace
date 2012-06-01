@@ -2,7 +2,7 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
    border-radius: 3px;
-   border: 3px solid #333;
+   border: 4px solid #333;
 /*    background: #F0F6F9;*/
 
     /*border: 1px solid #346F97;*/
@@ -54,20 +54,8 @@
 }
 
 .jcarousel-skin-tango .jcarousel-item-vertical {
-    margin-bottom: 15px;
-    opacity: 0.4;
-    -moz-opacity: 0.4;
-    filter:alpha(opacity=4);
-)}
-.jcarousel-skin-tango .jcarousel-item-vertical:hover {
-    /*margin-bottom: 15px;*/
-    /*border: 5px solid black;*/
-    opacity: 1;
-    -moz-opacity: 1;
-    filter:alpha(opacity=10);
-
+    margin-bottom: 10px;
 }
-
 
 .jcarousel-skin-tango .jcarousel-item-placeholder {
     background: #fff;
