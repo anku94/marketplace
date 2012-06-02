@@ -10,7 +10,6 @@
  */
 
 (function($) {
-
     var NivoSlider = function(element, options){
 		//Defaults are below
 		var settings = $.extend({}, $.fn.nivoSlider.defaults, options);
@@ -88,10 +87,26 @@
         }
         
         //Set first background
-	slider.width((vars.currentImage.width()/vars.currentImage.height())*(slider.height()));
-	slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':'10px'});
+	var scase = 0;
+	if(slider.height()<vars.currentImage.height()) {
+		var new_width=(vars.currentImage.width()/vars.currentImage.height())*(slider.height());
+		if(new_width<slider.width())
+			slider.width(new_width);
+		scase = 1;
+	}
+	if(slider.width()<vars.currentImage.width()) {
+		var new_height=(vars.currentImage.height()/vars.currentImage.width())*(slider.width());
+		if(new_height<slider.height())
+			slider.height(new_height);
+		scase = 1;
+	}
+	if(!scase){
+			slider.height(vars.currentImage.height());
+			slider.width(vars.currentImage.width());
+	}
+	slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':(($('#content').height())-slider.height())/2});
 
-        //Create caption
+//Create caption
         slider.append(
             $('<div class="nivo-caption"><p></p></div>').css({ display:'none', opacity:settings.captionOpacity })
         );		
@@ -330,8 +345,6 @@
 			slider.css('background-image','none');
 			slider.width(($('#content').width())-20);
 			slider.height(($('#content').height())-25);
-		//	slider.width(0);
-		//	slider.height(0);
 			slider.css('margin','0 auto');
 			//Get our vars
 			var vars = slider.data('nivo:vars');
@@ -377,30 +390,58 @@
 			} else {
 				vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
 			}
-			if (vars.currentImage.width()>(($('#content').width())-20)) {
+		/*	if (vars.currentImage.width()>(($('#content').width())-20)) {
 				$('.nivo-slice', slider).remove();
 				$('.nivo-box', slider).remove();
 				slider.width((vars.currentImage.width()/vars.currentImage.height())*(slider.height()));
-				slider.css('top','10px');
+				slider.css('top',(($('#content').height())-slider.height())/2);
 				slider.fadeTo('slow', 0.3, function()
 						{
 					slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center','background-size':'contain'});
 						}).fadeTo('slow', 1);
 					return;
 			}
-			else /*if (vars.currentImage.width()<=slider.width()||vars.currentImage.height()<=slider.height()) */{
+			else {
 				slider.width(vars.currentImage.width());
 				slider.height(vars.currentImage.height());
-				slider.css('top',(($('#content').height())-25-vars.currentImage.height())/2);
-/*				slider.fadeTo('slow', 0.3, function()
+				slider.css('top',(($('#content').height())-slider.height())/2);
+				slider.fadeTo('slow', 0.3, function()
 						{
 						$(this).css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat center');
 						}).fadeTo('slow', 1);
 				$('.nivo-slice', slider).remove();
 				$('.nivo-box', slider).remove();
 				return;
-*/			}
-			
+			}
+		*/	
+				var scase = 0;
+				if(slider.height()<vars.currentImage.height()) {
+					var new_width=(vars.currentImage.width()/vars.currentImage.height())*(slider.height());
+					if(new_width<slider.width())
+						slider.width(new_width);
+					scase = 1;
+				}   
+				if(slider.width()<vars.currentImage.width()) {
+					var new_height=(vars.currentImage.height()/vars.currentImage.width())*(slider.width());
+					if(new_height<slider.height())
+						slider.height(new_height);
+					scase = 1;
+				}   
+				if(!scase){
+					slider.height(vars.currentImage.height());
+					slider.width(vars.currentImage.width());
+				}   
+				slider.css('top',(($('#content').height())-slider.height())/2);
+			if (vars.currentImage.width()>(($('#content').width())-20)||vars.currentImage.height()>($('#content').height()-25)) {
+				$('.nivo-slice', slider).remove();
+				$('.nivo-box', slider).remove();
+				slider.fadeTo('slow', 0.3, function()
+						{
+				slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':(($('#content').height())-slider.height())/2});
+						}).fadeTo('slow', 1);
+				return;
+			}
+
 			//Set active links
 			if(settings.controlNav){
 				$('.nivo-controlNav a', slider).removeClass('active');

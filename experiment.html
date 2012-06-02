@@ -32,7 +32,7 @@
 			jQuery(document).ready(function() {
 					    jQuery('#mycarousel').jcarousel({
 						            vertical: true,
-							            scroll: 1
+							    scroll: 1
 								        });
 					    });
 			</script>
@@ -108,6 +108,7 @@
 	<script type="text/javascript">
 	var $footer=$('#footer');
 		$(document).ready(function(){
+			
 			$('#slider').nivoSlider();
 			//Footer resizing, on function WILL NOT work wil jQuery 1.4.2
 			$footer.on('click', function(){
@@ -123,7 +124,36 @@
 					}, 100);
 				}				
 			});
-		});				
+		});		
+		$(window).resize(function() {
+				var slider=$('#slider');
+				$content=$('#content');
+			        var vars = slider.data('nivo:vars');
+				slider.height(($content.height())-25);
+				slider.width(($content.width())-20);
+				var scase = 0;
+				$('.nivo-slice', slider).remove();
+				$('.nivo-box', slider).remove();
+				if(slider.height()<vars.currentImage.height()) {
+					var new_width=(vars.currentImage.width()/vars.currentImage.height())*(slider.height());
+					if(new_width<slider.width())
+						slider.width(new_width);
+					scase = 1;
+				}   
+				if(slider.width()<vars.currentImage.width()) {
+					var new_height=(vars.currentImage.height()/vars.currentImage.width())*(slider.width());
+					if(new_height<slider.height())
+						slider.height(new_height);
+					scase = 1;
+				}   
+				if(!scase){
+					slider.height(vars.currentImage.height());
+					slider.width(vars.currentImage.width());
+				}   
+
+				slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':(($('#content').height())-slider.height())/2});
+		});
+
 	</script>
 </body>
 </html>
