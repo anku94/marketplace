@@ -89,7 +89,7 @@
         
         //Set first background
 	slider.width((vars.currentImage.width()/vars.currentImage.height())*(slider.height()));
-        slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain'});
+	slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':'10px'});
 
         //Create caption
         slider.append(

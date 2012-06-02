@@ -139,15 +139,6 @@
 					marginTop: mtop
 					}, 120);
 		}
-		$('#slides').slides({
-			animationComplete: function(current){
-			// Set the slide number as a hash
-			window.location.hash = '#' + current;
-			var ht=$window.height()-70,
-			wd=$window.width()-216;
-			slideAdjust(wd, ht);
-			}
-			});     
 
 		$document.ready(function(){
 			var ht=$window.height()-70,
