@@ -15,6 +15,49 @@ body   {
 	height:40px;
 	overflow:auto;
 }
+ul#header-nav {
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+	list-style-type: none;
+}
+ul#header-nav li {
+	float: left;
+	margin: 0px;
+	padding-left: 3px;
+	padding-right: 3px;			
+	height: 38px;
+}
+ul#header-nav a {
+	display: block;
+	margin: 0px;
+	padding: 2px 5px 0px 5px;	
+	height: 40px;
+	color: white;
+	text-indent:-9999px;
+}
+ul#header-nav li a {
+	width: 160px;
+	background: url(../images/nav-sprite.png);
+}
+ul#header-nav li#buyer a {
+	background-position: -8px -52px;
+}
+ul#header-nav li#buyer a:hover {
+	background-position: -8px -8px;
+}
+ul#header-nav li#seller a {
+
+	background-position: -222px -52px;
+}
+ul#header-nav li#seller a:hover {
+	background-position: -222px -8px;
+}
+ul#header-nav li#blog a {
+	background-position: -426px -52px;
+}
+ul#header-nav li#blog a:hover {
+	background-position: -426px -8px;
+}
 #main  {
 	background:#888; 
 	position:absolute; 
