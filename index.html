@@ -1,62 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 	<meta name="description" content="A blurb to describe the content of the page appears here" >
 	<script type="text/javascript" src=""></script>
-	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script-->
+	<!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script -->
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
 	<script src="js/jquery.waitforimages.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<script type="text/javascript">
-	//Slideshow
-	/*var startSlide = 1;
-	if (window.location.hash) {
-		startSlide = window.location.hash.replace('#', '');
-	}*/
-	//Initialize slides
-
-	/*$('slides').slides ({
-			preload: true,
-			preloadImage: 'images/loading.gif',
-			generatePagination: true;
-			play: 5000,
-			pause: 2500,
-			hoverPause: false,
-			start: startSlide,
-			animationComplete: function(current){
-				window.location.hash = '#' + current;
-				}
-		});*/
-	</script>
-	<style>
-
-	.slides_container {
-		position:relative;
-		width: 570px;
-		height: 210px;
-	}
-	.slides_container div {
-		width: 570px;
-		height: 210px;
-		display: block;
-		/*position: absolute;
-		top:50%;
-		left:50%;*/
-		background-color: yeellow;
-	}
-	.slide {
-		margin-left:288px;
-		margin-top:100px;
-	}
-	
-	</style>
+	<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/frame.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css2/style.css" /> -->
+	<link rel="stylesheet" type="text/css" href="css2/nivo-slider.css" />
+	<link rel="stylesheet" type="text/css" href="css2/default/default.css" />
 	<title>	Some title</title>
 </head>
 <body>
-	<div id="header">
+	<div id="header" style="overflow: hidden;">
 		<ul id="header-nav">
 			<li id="buyer"><a href="#">BUYER</a></li>
 			<li id="seller"><a href="#">SELLER</a></li>
@@ -64,134 +24,138 @@
 		</ul>
 	</div>
 	<div id="main">
-		<div id="content">
-			<div id="slides">
-				<div class="slides_container">
-					<div class="slide">
-						<img src="images/570x270.gif">
+		<div id="sidebar" style="overflow: hidden;">
+			<link href="css2/style_sidebar.css" rel="stylesheet" type="text/css" />
+			<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+			<link rel="stylesheet" type="text/css" href="css2/skin_sidebar.css" />
+			<div id="wrap">
+				<ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
+					<li><img src="images/1920x1024.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/YellowFlower.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/FootFall.png" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/GreenMeadow.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Spaceflare-supernova.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Terraform-green.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Wood.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Blinds.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/FreshFlower.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Spaceflare.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/SundownDunes.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Terraform-orange.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/BlueMarbleWest.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Garden.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Spaceflare-nova.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/Terraform-blue.jpg" width="75" height="75" alt="" /></li>
+					<li><img src="images/thumbs/TwoWings.jpg" width="75" height="75" alt="" /></li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+			</script>
+		</div>
+		<div id="content" style="overflow: hidden">
+			<div id="wrapper">
+				<div class="slider-wrapper theme-default">
+					<div class="ribbon">
+						
 					</div>
-					<div class="slide">
-						<img src="images/570x270.gif">
-					</div>
-					<div class="slide">
-						<img src="images/570x270.gif">
-					</div>
-					<div class="slide">
-						<img src="images/570x270.gif">
-					</div>
+					<div id="slider" class="nivoSlider">
+						<img src="images/1920x1024.jpg" /> 
+						<img src="images/thumbs/YellowFlower.jpg"/> 
+						<img src="images/FootFall.png"/> 
+						<img src="images/GreenMeadow.jpg"/> 
+						<img src="images/Spaceflare-supernova.jpg"/> 
+						<img src="images/Terraform-green.jpg"/> 
+						<img src="images/Wood.jpg"/> 
+						<img src="images/Blinds.jpg"/> 
+						<img src="images/FreshFlower.jpg"/> 
+						<img src="images/Spaceflare.jpg"/> 
+						<img src="images/SundownDunes.jpg"/> 
+						<img src="images/Terraform-orange.jpg"/> 
+						<img src="images/BlueMarbleWest.jpg"/> 
+						<img src="images/Garden.jpg"/> 
+						<img src="images/Spaceflare-nova.jpg"/> 
+						<img src="images/Terraform-blue.jpg"/> 
+						<img src="images/TwoWings.jpg"/> 
+						<img src="images/splash.jpg" alt="" />
+						<a href="http://dev7studios.com"><img src="images/570x270.gif" alt="" title="This is an example of a caption" /></a>
+						<img src="images/Aqua.jpg" alt="" title="#htmlcaption" />
 
+					</div>
+					<div id="htmlcaption" class="nivo-html-caption">
+						<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+					</div>
 				</div>
 
 			</div>
+
 		</div>
-		<div id="sidebar">
-			<p>
-				<a id="slide1">Slide 1</a>
-			</p>
-			<p>
-				<a id="slide2">Slide 2</a>
-			</p>
-			<p>
-				<a id="slide3">Slide 3</a>
-			</p>
-			<p>
-				<a id="slide4">Slide 4</a>
-			</p>
-			<p>
-				The above may be text, but it's clickable text. Click to change the slides
-			</p>
-		</div>
+		
 	</div>
+	
 	<div id="footer">
-		
+
+		Let's try resizing it. :)
+
 	</div>
-	<script>
 
+	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+	<script type="text/javascript">
+			$('#wrap').height(($('#content').height())-120);
+			jQuery(document).ready(function() {
+					    jQuery('#mycarousel').jcarousel({
+						            vertical: true,
+							    scroll: 1
+								        });
+					    });
+	var $footer=$('#footer');
+		$(document).ready(function(){
+			
+			$('#slider').nivoSlider();
+			//Footer resizing, on function WILL NOT work wil jQuery 1.4.2
+			$footer.on('click', function(){
+				console.log('Footer clicked');
+				if($footer.css('height')=='30px'){
+					$footer.animate({
+						height:100
+					}, 100);
+				}
+				else{
+					$footer.animate({
+						height:30
+					}, 100);
+				}				
+			});
+		});		
+		$(window).resize(function() {
+			$('#wrap').height(($('#content').height())-120);
+				var slider=$('#slider');
+				$content=$('#content');
+			        var vars = slider.data('nivo:vars');
+				slider.height(($content.height())-25);
+				slider.width(($content.width())-20);
+				var scase = 0;
+				$('.nivo-slice', slider).remove();
+				$('.nivo-box', slider).remove();
+				if(slider.height()<vars.currentImage.height()) {
+					var new_width=(vars.currentImage.width()/vars.currentImage.height())*(slider.height());
+					if(new_width<slider.width())
+						slider.width(new_width);
+					scase = 1;
+				}   
+				if(slider.width()<vars.currentImage.width()) {
+					var new_height=(vars.currentImage.height()/vars.currentImage.width())*(slider.width());
+					if(new_height<slider.height())
+						slider.height(new_height);
+					scase = 1;
+				}   
+				if(!scase){
+					slider.height(vars.currentImage.height());
+					slider.width(vars.currentImage.width());
+				}   
 
-		var $document=$(document),
-		$main=$('#main'),
-		$window=$(window);
-		$content=$('#content');
-		$sidebar=$('#sidebar');
-		$slidebox=$('.slides_container');
-		$slidediv=$('.slides_container div');
-		$('.pagination').css('display', 'none');
-		function slideAdjust(wd, ht){
-			$active=$('.slide:not([style*="none"])');
-			iwd=$active.children("img").width();
-			iht=$active.children("img").height();
-			mtop=(ht-iht)/2;
-			mleft=(wd-iwd)/2;
-			console.log($active.children("img"), ht, wd, iht, iwd);
-			$active.animate({
-					marginLeft: mleft,
-					marginTop: mtop
-					}, 120);
-			//$active.css("margin-left", mleft).css("margin-top", mtop);
-		}
-
-	//	$('#slides').slides({
-	//			//generatePagination: True
-	//			});
-		$('#slides').slides({
-				//preload: true,
-				//preloadImage: 'img/loading.gif',
-				//generatePagination: true,
-				//play: 5000,
-				//pause: 2500,
-				//hoverPause: true,
-				// Get the starting slide
-				//start: startSlide,
-				animationComplete: function(current){
-					// Set the slide number as a hash
-					window.location.hash = '#' + current;
-					var ht=$window.height()-70,
-					wd=$window.width()-216;
-					slideAdjust(wd, ht);
-					}
-					
-				});	
-		$document.ready(function(){
-			var ht=$window.height()-70,
-			wd=$window.width()-216;
-			$main.css('height', ht);
-			$content.css('width', wd).css('min-height', ht);
-			$slidebox.css('width', wd).css('min-height', ht);
-			//$slidediv.css('width', wd).css('min-height', ht);
-			$sidebar.css('min-height', ht).css('height', ht);
-			$('.pagination').css('display', 'none');
-
+				slider.css({'background':'url("'+ vars.currentImage.attr('src') +'") no-repeat center ','background-size':'contain','margin':'0 auto','top':(($('#content').height())-slider.height())/2});
 		});
-		$document.waitForImages(function(){
-			var ht=$window.height()-70,
-			wd=$window.width()-216;
-			slideAdjust(wd, ht);
-				});
 
-		$window.resize(function() {
-			var ht=$window.height()-70,
-			wd=$window.width()-216;
-			$main.css('height', ht);
-			$content.css('width', wd).css('min-height', ht);
-			$slidebox.css('width', wd).css('min-height', ht);
-			//$slidediv.css('width', wd).css('min-height', ht);
-			$sidebar.css('min-height', ht);
-			slideAdjust(wd, ht);
-		});
-		$sidebar.find('a#slide1').click(function() {
-				$('.pagination a').eq(0).trigger('click');
-				});
-		$sidebar.find('a#slide2').click(function() {
-				$('.pagination a').eq(1).trigger('click');
-				});
-		$sidebar.find('a#slide3').click(function() {
-				$('.pagination a').eq(2).trigger('click');
-				});
-		$sidebar.find('a#slide4').click(function() {
-				$('.pagination a').eq(3).trigger('click');
-				});
-		
-		
 	</script>
 </body>
 </html>
