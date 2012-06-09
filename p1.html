@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<meta name="description" content="A blurb to describe the content of the page appears here" >
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/frame.css">
+	<link rel="stylesheet" type="text/css" href="css/960_12_col.css">
+	
+	<script type="text/javascript">
+	//Insert JavaScript here
+	</script>
+	<style>	
+	</style>
+	<title>	Some title</title>
+</head>
+<body>
+
+<div id='header'>
+	Header stuff
+</div>
+<div id='main'>
+	<div id='sidebar'>
+	    Sidebar
+    </div>
+    <div id='content'>
+    	<div class="wrap container_12" style="background: darkgray; border: 1px solid black; margin-top:10px;" >
+    		<div class="grid_3" style="background: blue">Grid 1</div>
+    		<div class="grid_3" style="background: blue">Grid 2</div>
+    		<div class="grid_3" style="background: blue">Grid 3</div>
+    		<!-- <div class="grid_2" style="background: blue">Grid 4</div> -->
+    	</div>	    
+    </div>     
+</div>
+<div id='footer'>Footer</div>
+<script type="text/javascript">
+	$footer=$('#footer');
+	$(document).ready(function(){
+		$footer.on('click', function(){
+					// console.log('Footer clicked');
+					if($footer.css('height')=='30px'){
+						$footer.animate({
+							height:100
+						}, 100);
+					}
+					else{
+						$footer.animate({
+							height:30
+						}, 100);
+					}				
+				});	
+	});
+</script>
+</body>
+</html>

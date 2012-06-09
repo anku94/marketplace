@@ -5,6 +5,13 @@ This website is gonna use some CSS, some JS, some jQuery, and of course, HTML.
 
 Since I doubt if anyone but me and partner (Hello, Nehal!) is gonna go through this, I am just going to list the work that needs to be done here.
 
+June 10, 4:24AM, Ankush
+-----------------------
+I'm using the 960-12-column layout for web pages other than the home page. Due to the inclusion of the sidebar and lack of significant content, it has been modified to a 720-9 col layout. It looks decent on a 1024x768 screen, and the blank space in widescreen monitors will just have to be there, as is the case with every other website, barring a few.
+
+Currently, p1.html is the implementation of 1.jpg (nowhere near completion, of course :P)
+
+
 June 2, 1:58AM, Ankush
 -----------------------
 Moved the code to experiment.html with the changed stylesheet. Removed almost all the javascript code at the bottom that previously handled resizing. The footer-div now comes before the content-div, due to the requirements of the CSS layout. The only bug other than the carousel height is the initial position of the image. The image is not centered initially. Although when you visit the same image again, it gets centered.
