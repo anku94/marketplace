@@ -9,7 +9,7 @@ June 10, 4:24AM, Ankush
 -----------------------
 I'm using the 960-12-column layout for web pages other than the home page. Due to the inclusion of the sidebar and lack of significant content, it has been modified to a 720-9 col layout. It looks decent on a 1024x768 screen, and the blank space in widescreen monitors will just have to be there, as is the case with every other website, barring a few.
 
-Currently, p1.html is the implementation of 1.jpg (nowhere near completion, of course :P)
+Currently, p1.html is the implementation of 1.jpg (nowhere near completion, of course :P). Directory structure has been changed. Stuff in /useless is for backup purposes, although it should ideally never be used. frame_template will serve as the template for all pages.
 
 
 June 2, 1:58AM, Ankush
