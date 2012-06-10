@@ -39,6 +39,10 @@ img#gold{
 }
 #middle{
 	margin-top:1em;
-	height: 65%;
 	background-color: #444;
+}
+#prevgig{
+	background-color: #111;
+	height: 100%;
+	overflow: auto;
 }
