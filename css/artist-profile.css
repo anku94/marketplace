@@ -1,0 +1,44 @@
+#content-wrap{
+	margin-top: 30px;
+	height: 100%;
+}
+#top{
+	height: 180px;
+}
+img#profilepic{	
+	height: 150px;
+	width: 150px;	
+	float: left;
+}
+#dp_desc{
+	position: relative;
+	left: -75px;
+}
+#topwrap *
+{
+	float: right;
+	clear: both;
+}
+img#gold{
+	margin: 5px 0px 5px 0px;	
+}
+#linkbox{
+	position: relative;
+	/*left: -138px; *//*To align with the ratings section on top of it*/
+	top: 24px;/*To align with the bottom of the profile picture*/
+	width: 260px;
+	height: 50px;
+}
+#linkbox .link{
+	width:50px;
+	height: 50px;
+	float: left;
+	clear: none;
+	background-color:#AAA;
+	margin-right: 2px;
+}
+#middle{
+	margin-top:1em;
+	height: 65%;
+	background-color: #444;
+}
