@@ -9,6 +9,25 @@
 	<link rel="stylesheet" type="text/css" href="css/frame.css">
 	<link rel="stylesheet" type="text/css" href="css/960_12_col.css">
 	<link rel="stylesheet" type="text/css" href="css/artist-profile.css">
+	<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+	<style type="text/css" id="page-css">
+			/* Styles specific to this particular page */
+			.scroll
+			{
+		/*		width: 100%; */
+				height: 200px;
+				overflow: auto;
+			}
+		</style>
+
+	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	
+	<script type="text/javascript">
+		$(function()
+			{
+				$('.scroll').jScrollPane();
+			});
 	
 	<script type="text/javascript">
 	//Insert JavaScript here
@@ -74,7 +93,7 @@
 	    				About Me
 	    			</div>
 	    		</div>
-	    		<div class="grid_3 omega" id="prevgig">
+	    		<div class="grid_3 omega scroll" id="prevgig">
 
 	    			<ul>
 	    				<li>List item</li>
