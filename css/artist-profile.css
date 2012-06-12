@@ -1,3 +1,7 @@
+#content{
+	overflow: hidden;
+}
+
 #content-wrap{
 	margin-top: 30px;
 	height: 100%;
@@ -39,10 +43,13 @@ img#gold{
 }
 #middle{
 	margin-top:1em;
-	background-color: #444;
+	background-color: #888;
 }
 #prevgig{
-	background-color: #111;
+	/*background-color: #111;*/
 	height: 100%;
 	overflow: auto;
+}
+#prevgig ul li{
+	padding: 10px;
 }
