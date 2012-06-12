@@ -15,20 +15,15 @@
 			.scroll
 			{
 		/*		width: 100%; */
-				height: 200px;
-				overflow: auto;
+/*				height: 200px;
+*/				overflow: auto;
 			}
 		</style>
 
 	<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 	
-	<script type="text/javascript">
-		$(function()
-			{
-				$('.scroll').jScrollPane();
-			});
-	
+
 	<script type="text/javascript">
 	//Insert JavaScript here
 	</script>
@@ -95,7 +90,7 @@
 	    		</div>
 	    		<div class="grid_3 omega scroll" id="prevgig">
 
-	    			<ul>
+	    			<ul style="color:white">
 	    				<li>List item</li>
 	    				<li>List item</li>
 	    				<li>List item</li>
@@ -150,6 +145,12 @@
 						}, 100);
 					}				
 				});	
+
+		$(function()
+			{
+				$('.scroll').jScrollPane();
+			});
+	
 	});
 </script>
 </body>
